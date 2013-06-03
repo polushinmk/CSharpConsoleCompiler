@@ -14,16 +14,23 @@ How does it works
 =================
 
 This program use CodeDomProvider class to compile the source code, which builds from this sources
-> using System;
-> using System.Text;
+    using System;
 
-> namespace Samples {
-> class Program {
->     public object MyMethod() {
->      return usercmd;
->    }
->  }
->}
+    using System.Text;
+
+    namespace Samples {
+
+      class Program {
+
+        public object MyMethod() {
+
+        return usercmd;
+
+        }
+
+      }
+
+    }
 
 where usercmd is your expression. Expression may be anything, that returns type, that can be converted to object.
 
