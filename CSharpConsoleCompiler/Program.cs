@@ -11,23 +11,24 @@ namespace CSharpConsoleCompiler
     class Program
     {
         static void Main(string[] args)
-        {        
-            //Постоянный цикл работы с пользователем до завершения приложения
+        {
+            Console.WriteLine("Please, write an expression, using C# syntax:");
+            //Infinite cycle
             do {
-                //Провайдер языка С# и его настройки
                 try
                 {
+                    //Provider of c# compiler and his options
                     CodeDomProvider prov = CodeDomProvider.CreateProvider("CSharp");
                     CompilerParameters cp = new CompilerParameters(new string[] { "System.dll" });
                     cp.CompilerOptions = "/t:library";
-                    //Объявление необходимых переменных
+                    //Declaration of required variables
                     object ci, result = null;
                     string usercmd, sources;
                     CompilerResults cr = null;
                     Type tp = null;
                     MethodInfo mi = null;
-                    //Логика работы
-                    Console.WriteLine("Введите выражение для расчета на синтаксисе C#");
+                    //The main program
+                    Console.Write("> ");
                     usercmd = Console.ReadLine();
                     sources = "using System; using System.Text; namespace Samples{class Program{public object MyMethod(){return (" + usercmd + ");} }}";
                     cr = prov.CompileAssemblyFromSource(cp, sources);
